@@ -1,0 +1,7 @@
+Django==3.2.10
+djangorestframework==3.12.4
+python-dotenv==0.19.2
+fs==2.4.14
+psycopg2-binary==2.9.2
+boto3==1.20.23
+django-storages==1.12.3

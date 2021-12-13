@@ -1,0 +1,48 @@
+version: '3.1'
+
+services:
+
+  postgres:
+      image: postgres:12.6
+      env_file: 
+        - .env
+      volumes:
+        - ./pgdata:/var/lib/postgresql/data
+      ports:
+        - "5432:5432"
+
+  pgadmin:
+    image: dpage/pgadmin4:5.1
+    env_file: 
+      - .env
+    volumes:
+      - pgadmin:/var/lib/pgadmin
+    ports:
+      - "5050:80"
+  
+  app:
+    build: cloud_file_manager/.
+    volumes:
+      - ./cloud_file_manager/cloud_file_manager:/home/cloud_file_manager/
+    ports:
+      - "8000:8000"
+    command:
+      ["./run_app.sh"]
+    env_file: 
+      - .env
+    depends_on:
+      - postgres
+    
+  minio:
+      image: "minio/minio"
+      command: minio server /data
+      env_file: 
+        - .env
+      ports:
+          - "9000:9000"
+      volumes:
+        - storage:/data
+
+volumes:
+  pgadmin:
+  storage:
