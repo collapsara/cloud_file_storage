@@ -35,7 +35,7 @@ services:
     
   minio:
       image: "minio/minio"
-      command: minio server /data
+      command: minio server /data --address ':9000' --console-address ':9002'
       env_file: 
         - .env
       ports:

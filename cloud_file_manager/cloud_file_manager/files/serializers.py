@@ -4,6 +4,7 @@ from . import models
 
 
 class FileSerializer(serializers.ModelSerializer):
+    filename = serializers.CharField(required=False, allow_null=True)
     content_type = serializers.CharField(required=False, allow_null=True)
 
     class Meta:

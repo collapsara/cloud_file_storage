@@ -5,3 +5,5 @@ fs==2.4.14
 psycopg2-binary==2.9.2
 boto3==1.20.23
 django-storages==1.12.3
+drf-spectacular==0.21.0
+drf-spectacular-sidecar==2021.12.13
