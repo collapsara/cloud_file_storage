@@ -38,8 +38,8 @@ GET http://localhost:8000/files/download/{id}/
 - pgadmin - postgres admin of database
 - minio - file storage server
 
-
-
+## Database
+You can connect to database with pgadmin with http://localhost:5050/ path. You can find all credentials in .env file
 
 
 
